@@ -49,7 +49,6 @@ Carthage/Checkouts/
 .build/
 Package.resolved
 .swiftpm/
-*.xcodeproj
 *.xcworkspace
 !Package.swift
 
