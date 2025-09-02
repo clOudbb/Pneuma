@@ -1,62 +1,233 @@
 # Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+# 构建产物
+build/
+DerivedData/
+*.xcbuilddata
+*.xcarchive
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
 
-## User settings
-xcuserdata/
+# Xcode 自动生成的文件
+*.xcodeproj/*/*.pbxproj
+*.xcodeproj/*/*.xcuserstate
+*.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+*.xcodeproj/xcshareddata/
 
-## Obj-C/Swift specific
-*.hmap
+# Xcode 缓存和临时文件
+*.xcuserstate
+*.xcsettings
+*.xccheckout
+*.xcscmblueprint
+*.xcscheme
+*.xcactivitylog
+*.DS_Store
 
-## App packaging
-*.ipa
-*.dSYM.zip
-*.dSYM
+# Swift 编译相关
+*.swiftdoc
+*.swiftmodule
+*.swiftinterface
+*.swiftsourceinfo
+*.o
+*.swp
 
-## Playgrounds
-timeline.xctimeline
-playground.xcworkspace
-
-# Swift Package Manager
-#
-# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
-# Packages/
-# Package.pins
-# Package.resolved
-# *.xcodeproj
-#
-# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
-# hence it is not needed unless you have added a package configuration file to your project
-# .swiftpm
-
-.build/
+# Playground 相关
+*.playground/Contents.swift
+*.playground/timeline.xctimeline
+*.playground/xcuserdata/
 
 # CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# Pods/
-#
-# Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
+Pods/
+Podfile.lock
+*.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
 
 # Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
-
 Carthage/Build/
+Carthage/Checkouts/
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/#source-control
+# Swift Package Manager (SPM)
+.build/
+Package.resolved
+.swiftpm/
+*.xcodeproj
+*.xcworkspace
+!Package.swift
 
+# React Native (RN)
+node_modules/
+package-lock.json
+yarn.lock
+*.log
+*.log.*
+npm-debug.log*
+*.tgz
+dist/
+coverage/
+ios/build/
+ios/Pods/
+ios/Podfile.lock
+ios/*.xcworkspace/
+ios/DerivedData/
+ios/*.pbxproj
+ios/*.xcuserstate
+
+# Fastlane
 fastlane/report.xml
 fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
+fastlane/screenshots/
+fastlane/test_output/
+fastlane/readme.md
+fastlane/*.ipa
+fastlane/*.app.zip
+fastlane/*.dSYM.zip
+
+# Code coverage
+*.gcda
+*.gcno
+*.gcov
+*.profdata
+*.profraw
+
+# Dependency manager artifacts
+vendor/
+.bundle/
+*.gem
+
+# Temporary files
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
+*.backup
+
+# macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Sensitive information
+*.mobileprovision
+*.cer
+*.p12
+*.pem
+*.key
+*.secret
+*.env
+*.xcconfig
+!*.xcconfig.sample
+*.plist
+!Info.plist
+!*-Info.plist
+
+# Archives and exports
+*.ipa
+*.app
+*.dSYM
+*.dSYM.zip
+*.framework.zip
+
+# Test artifacts
+*.xctest
+*.xctest.dSYM
+*.testresult
+*.xcresult
+
+# Other tools
+.rbenv/
+.rvm/
+.nvm/
+*.rvmrc
+*.ruby-version
+*.ruby-gemset
+
+# Editor and IDE files
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# Local configuration files
+*.local
+*.local.*
+local.properties
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Miscellaneous
+*.orig
+*.rej
+*.bak
+*.backup
+*.patch
+*.diff
+
+# Build tools
+.gradle/
+build/
+out/
+target/
+dist/
+
+
+
+
+
+
+
+
+# Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+xcshareddata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
+*.xcscheme
+
+# RN
+ReactNativeLib/third-party/
+ReactNativeLib/node_modules_cache/
+ReactNativeLib/node_modules/
+ReactNativeLib/package-lock.json
+
+# Code Injection
+# After new code Injection tools there's a generated folder /iOSInjectionProject
+# https://github.com/johnno1962/injectionforxcode
+
+iOSInjectionProject/
+
+# AutoTest
+AutoTestAssistant/node_modules/
+AutoTestAssistant/diff/
+AutoTestAssistant/first/
+AutoTestAssistant/second/
+AutoTestAssistant/app/
+AutoTestAssistant/.idea/
+
+# CodeCoverage
+codecoverage/codecoverageinfo.txt
+
+# Tern
+*.tern-port
+
+# Ruby
+.bundle/*
+!.bundle/config
+vendors/ruby
