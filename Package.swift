@@ -17,7 +17,9 @@ let package = Package(
     
     products: [
         .library(name: "Pneuma", targets: ["Pneuma"]),
-        .library(name: "Models", targets: ["Models"])
+        .library(name: "Models", targets: ["Models"]),
+        .library(name: "YYCache", targets: ["YYCache"]),
+        .library(name: "YYModel", targets: ["YYModel"]),
     ],
 
     dependencies: [
@@ -26,10 +28,8 @@ let package = Package(
 //      .package(url: "https://github.com/TelemetryDeck/SwiftSDK", from: "2.3.0"),
         
         // MARK: - Vendors
-        .package(name: "LRUCache", path: "Sources/Vendors/LRUCache"),
-        .package(name: "YYCache", path: "Sources/Vendors/YYCache"),
-        .package(name: "YYModel", path: "Sources/Vendors/YYModel"),
-        
+        .package(url: "https://github.com/nicklockwood/LRUCache.git", .upToNextMinor(from: "1.1.2")),
+
         // MARK: - XCFramework
         .package(url: "https://github.com/onepiece-studio/mmkv.git", .upToNextMajor(from: "2.2.2")),
         
@@ -91,9 +91,19 @@ let package = Package(
         .target(
             name: "Models",
             dependencies: [
-                "YYModel"
+                 "YYModel"
             ],
             path: "Sources/Pneuma/Models"
+        ),
+        .target(
+            name: "YYCache",
+            path: "Sources/Vendors/YYCache/Sources/YYCache",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "YYModel",
+            path: "Sources/Vendors/YYModel/Sources/YYModel",
+            publicHeadersPath: "."
         ),
     ]
 )
