@@ -18,6 +18,8 @@ let package = Package(
     products: [
         .library(name: "Pneuma", targets: ["Pneuma"]),
         .library(name: "Models", targets: ["Models"]),
+        .library(name: "Env", targets: ["Env"]),
+
         .library(name: "YYCache", targets: ["YYCache"]),
         .library(name: "YYModel", targets: ["YYModel"]),
     ],
@@ -81,6 +83,7 @@ let package = Package(
                 "LRUCache",
                 
                 "Models",
+                "Env",
             ],
             path: "Sources/src",
         ),
@@ -88,13 +91,7 @@ let package = Package(
             name: "PneumaTests",
             dependencies: ["Pneuma"]
         ),
-        .target(
-            name: "Models",
-            dependencies: [
-                 "YYModel"
-            ],
-            path: "Sources/Pneuma/Models"
-        ),
+
         .target(
             name: "YYCache",
             path: "Sources/Vendors/YYCache/Sources/YYCache",
@@ -104,6 +101,18 @@ let package = Package(
             name: "YYModel",
             path: "Sources/Vendors/YYModel/Sources/YYModel",
             publicHeadersPath: "."
+        ),
+
+        .target(
+            name: "Models",
+            dependencies: [
+                 "YYModel"
+            ],
+            path: "Sources/Pneuma/Models/Sources/Models"
+        ),
+        .target(
+            name: "Env",
+            path: "Sources/Pneuma/Env/Sources/Env"
         ),
     ]
 )
