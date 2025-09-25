@@ -107,7 +107,7 @@
 			mainGroup = C63D149E2E412D47001D628F;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				C6B3B2E62E6F665100FCD49A /* XCLocalSwiftPackageReference "../../../Pneuma" */,
+				C6BAD5962E735230009EF7CF /* XCLocalSwiftPackageReference "../../../Pneuma" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C63D14A82E412D47001D628F /* Products */;
@@ -347,7 +347,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		C6B3B2E62E6F665100FCD49A /* XCLocalSwiftPackageReference "../../../Pneuma" */ = {
+		C6BAD5962E735230009EF7CF /* XCLocalSwiftPackageReference "../../../Pneuma" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../../Pneuma;
 		};

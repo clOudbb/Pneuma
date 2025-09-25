@@ -8,7 +8,7 @@ let package = Package(
 //    defaultLocalization: "en",
     platforms: [
         .iOS(.v17),
-        .macOS(.v10_15),
+        .macOS(.v15),
         .tvOS(.v14),
         .watchOS(.v7),
         .visionOS(.v1),
@@ -19,6 +19,8 @@ let package = Package(
         .library(name: "Pneuma", targets: ["Pneuma"]),
         .library(name: "Models", targets: ["Models"]),
         .library(name: "Env", targets: ["Env"]),
+        .library(name: "Service", targets: ["Service"]),
+        .library(name: "Logger", targets: ["Logger"]),
 
         .library(name: "YYCache", targets: ["YYCache"]),
         .library(name: "YYModel", targets: ["YYModel"]),
@@ -48,12 +50,17 @@ let package = Package(
         .package(url: "https://github.com/Dean151/ButtonKit.git", from: "0.6.1"), // SwiftUI
         .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", .upToNextMajor(from: "6.2.0")),
         .package(url: "https://github.com/kean/Nuke.git", from: "12.8.0"),
+        // MARK: - Logger
+        .package(url: "https://github.com/CocoaLumberjack/CocoaLumberjack", from: "3.9.0"),
+
         // MARK: - Auth
         .package(url: "https://github.com/trivago/Heimdallr.swift.git", .upToNextMajor(from: "4.0.0")),
 //        .package(url: "https://github.com/OAuthSwift/OAuthSwift.git", .upToNextMajor(from: "2.2.0")),
 //        .package(url: "https://github.com/openid/AppAuth-iOS.git", .upToNextMajor(from: "1.3.0")),
         // MARK: - Database
 //        .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.15.4"),
+//        .package(url: "https://github.com/pointfreeco/sqlite-data", from: "1.0.0") // SwiftUI-sqlitedata
+
         // MARK: - Charts
 //        .package(url: "https://github.com/danielgindi/Charts.git", .upToNextMajor(from: "5.1.0")),
 
@@ -77,6 +84,7 @@ let package = Package(
                 "ButtonKit",
                 "SFSafeSymbols",
                 "Nuke",
+                "CocoaLumberjack",
                 
                 "YYModel",
                 "YYCache",
@@ -84,6 +92,8 @@ let package = Package(
                 
                 "Models",
                 "Env",
+                "Service",
+                "Logger",
             ],
             path: "Sources/src",
         ),
@@ -92,6 +102,7 @@ let package = Package(
             dependencies: ["Pneuma"]
         ),
 
+        // MARK: - Vendors
         .target(
             name: "YYCache",
             path: "Sources/Vendors/YYCache/Sources/YYCache",
@@ -113,6 +124,23 @@ let package = Package(
         .target(
             name: "Env",
             path: "Sources/Pneuma/Env/Sources/Env"
+        ),
+
+        // MARK: - Service
+        .target(
+            name: "Service",
+            dependencies: [
+                "Logger"
+            ],
+            path: "Sources/Pneuma/Service/Sources/Service"
+        ),
+        .target(
+            name: "Logger",
+            dependencies: [
+                .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
+                .product(name: "CocoaLumberjackSwiftLogBackend", package: "CocoaLumberjack"),
+            ],
+            path: "Sources/Pneuma/Logger/Sources/Logger"
         ),
     ]
 )
