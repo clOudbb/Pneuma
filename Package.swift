@@ -21,6 +21,7 @@ let package = Package(
         .library(name: "Env", targets: ["Env"]),
         .library(name: "Service", targets: ["Service"]),
         .library(name: "Logger", targets: ["Logger"]),
+        .library(name: "MVVM", targets: ["MVVM"]),
 
         .library(name: "YYCache", targets: ["YYCache"]),
         .library(name: "YYModel", targets: ["YYModel"]),
@@ -94,6 +95,7 @@ let package = Package(
                 "Env",
                 "Service",
                 "Logger",
+                "MVVM",
             ],
             path: "Sources/src",
         ),
@@ -141,6 +143,10 @@ let package = Package(
                 .product(name: "CocoaLumberjackSwiftLogBackend", package: "CocoaLumberjack"),
             ],
             path: "Sources/Pneuma/Logger/Sources/Logger"
+        ),
+        .target(
+            name: "MVVM",
+            path: "Sources/Pneuma/MVVM/Sources/MVVM"
         ),
     ]
 )
