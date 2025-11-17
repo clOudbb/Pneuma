@@ -28,7 +28,6 @@ let package = Package(
     ],
 
     dependencies: [
-//      .package(name: "Network", path: "../Network"),
 //      .package(url: "https://github.com/evgenyneu/keychain-swift", branch: "master"),
 //      .package(url: "https://github.com/TelemetryDeck/SwiftSDK", from: "2.3.0"),
         
@@ -40,6 +39,7 @@ let package = Package(
         
         // MARK: - Network
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.10.0")),
+        .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0")),
         .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI.git", from: "3.0.0"),
 //        .package(url: "https://github.com/robbiehanson/CocoaAsyncSocket", from: "7.6.4"),
         // MARK: - Layout
@@ -47,6 +47,9 @@ let package = Package(
         // MARK: - Router
         .package(url: "https://github.com/dimillian/AppRouter.git", from: "1.0.2"),
         .package(url: "https://github.com/devxoul/URLNavigator.git", .upToNextMajor(from: "2.5.1")),
+        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.4.0")),
+        .package(url: "https://github.com/Aeastr/Portal.git", .upToNextMajor(from: "2.0.0")),
+
         // MARK: - UI
         .package(url: "https://github.com/Dean151/ButtonKit.git", from: "0.6.1"), // SwiftUI
         .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", .upToNextMajor(from: "6.2.0")),
@@ -58,9 +61,18 @@ let package = Package(
         .package(url: "https://github.com/trivago/Heimdallr.swift.git", .upToNextMajor(from: "4.0.0")),
 //        .package(url: "https://github.com/OAuthSwift/OAuthSwift.git", .upToNextMajor(from: "2.2.0")),
 //        .package(url: "https://github.com/openid/AppAuth-iOS.git", .upToNextMajor(from: "1.3.0")),
+        
+        // MARK: - DI
+        .package(url: "https://github.com/hmlongco/Factory", .upToNextMajor(from: "2.5.0")),
+
+        // MARK: - Utils
+//        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.0.0"),
+//        .package(url: "https://github.com/pointfreeco/sqlite-data", from: "1.0.0")
+//        .package(url: "https://github.com/pointfreeco/swift-sharing", from: "2.0.0"),
+//        .package(url: "https://github.com/fatbobman/ObservableDefaults", from: "1.7.2")
+
         // MARK: - Database
 //        .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.15.4"),
-//        .package(url: "https://github.com/pointfreeco/sqlite-data", from: "1.0.0") // SwiftUI-sqlitedata
 
         // MARK: - Charts
 //        .package(url: "https://github.com/danielgindi/Charts.git", .upToNextMajor(from: "5.1.0")),
@@ -77,6 +89,8 @@ let package = Package(
             dependencies: [
                 .product(name: "MMKV", package: "mmkv"),
                 .product(name: "Heimdallr", package: "Heimdallr.swift"),
+                // .product(name: "Dependencies", package: "swift-dependencies"),
+                // .product(name: "Sharing", package: "swift-sharing"),
                 "Alamofire",
                 "SDWebImageSwiftUI",
                 "SnapKit",
@@ -86,6 +100,7 @@ let package = Package(
                 "SFSafeSymbols",
                 "Nuke",
                 "CocoaLumberjack",
+                "Factory",
                 
                 "YYModel",
                 "YYCache",
@@ -132,7 +147,7 @@ let package = Package(
         .target(
             name: "Service",
             dependencies: [
-                "Logger"
+                "Logger",
             ],
             path: "Sources/Pneuma/Service/Sources/Service"
         ),
