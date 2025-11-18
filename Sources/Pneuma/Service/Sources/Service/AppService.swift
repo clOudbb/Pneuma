@@ -99,10 +99,13 @@ public actor AppService {
     // Container used for DI injection
     public lazy var container: AppServiceContainer = AppServiceContainer(manager: self)
 
-    public init(plugins: [AppServicePlugin] = []) async {
+    public init(plugins: [AppServicePlugin]?) async {
         self.pluginManager = PluginManager()
-        for plugin in plugins {
-            await pluginManager.register(plugin: plugin, on: self)
+        
+        if let plugins = plugins, !plugins.isEmpty {
+            for plugin in plugins {
+                await pluginManager.register(plugin: plugin, on: self)
+            }
         }
     }
 
